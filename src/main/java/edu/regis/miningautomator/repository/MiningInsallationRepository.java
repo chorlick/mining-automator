@@ -5,8 +5,8 @@
  */
 package edu.regis.miningautomator.repository;
 
+import edu.regis.miningautomator.models.MiningInstallation;
 import edu.regis.miningautomator.models.User;
-import java.util.List;
 import java.util.UUID;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -16,10 +16,9 @@ import org.springframework.stereotype.Repository;
  * @author chorl_000
  */
 @Repository
-public interface UserRepository extends CrudRepository<User, UUID> {
-
-    User findById(UUID id);
-    User save(User user);
-    User findByUsername(String username);
-    void delete(User user);
+public interface MiningInsallationRepository extends CrudRepository<MiningInstallation, UUID> {
+    MiningInstallation findById(UUID id);
+    MiningInstallation save(MiningInstallation installation);
+    Iterable<MiningInstallation> findAllByUserId(UUID id);
+    void delete(MiningInstallation installation);
 }

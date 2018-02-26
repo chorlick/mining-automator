@@ -6,12 +6,19 @@
 
 
     <body>
-        This is the landing page. You're probably interested in <br/>
-        <a href="/login">Login</a><br/>
-        <a href="/logout">Logout</a><br/>
-        <a href="/register"/>Register</a><br/>
-        <a href="/heartbeat">Heartbeat</a><br/>
-        <a href="/dashboard">Dashboard</a><br/>
+        This is the landing page. In the future production environment this area of the website would be where the site conveys
+        generaly information about the application and would help the user register and provide pricing information.
+        The pages you're probably interested in and below <br/>
+        <a href="/login">Login</a> - This page is the login page for the actual application.<br/>
+        <a href="/logout">Logout</a> - Logout isnt actually a page but simply performs the logout then forwards the user back to the login page.<br/>
+        <a href="/login#signup"/>Register</a> - Allows the user to register a new account  <br/>
+        <a href="/heartbeat">Heartbeat</a> - This page is a sort of place holder right now. Hitting this page will create a new heartbeat entry in the database.<br/>
+        <a href="/dashboard">Dashboard</a> - This page is the landing page for user once authenticated on the login page.<br/>
+        <a href ="/h2/">H2 Console</a> - This page is an entry point to the h2 interface.
+        </br>
+        The security model right now allows the user to browse to login, logout, register, and of the static frontend pages(such as this one), and h2 without authentication. Heartbeat and dashboard are only accessible if the user is authenticated. In the production environment the h2 interface would be disabled.
+        </br>
+        *Note* During account creation there is usually an email sent out that has the user follow a link to confirm the account creation. Since there is not a transactional service integrated right now that link will be printed to the embedded tomcat log. Simply copying and pasting the link generated in the log to your browser will allow you to confirm your account creation. A similar mechanism is used for the forgotten password reset page. 
 </body>
 
 </html>

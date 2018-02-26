@@ -98,7 +98,7 @@
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                                         <li>
                                             <a href="javascript:;">
-                                                <span>Dashboard</span>
+                                                <span>Insallations</span>
                                             </a>
                                         </li>
                                         <li><a href="/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
@@ -118,13 +118,13 @@
 
                                 <div class="row x_title">
                                     <div class="col-md-12">
-                                        <h3>Dashboard</h3>
+                                        <h3>Installation</h3>
                                     </div>
 
 
                                     <div class="x_panel">
                                         <div class="x_title">
-                                            <h2>Installations <small>Click for Details</small></h2>
+                                            <h2>New Installation <small>Create New Installation</small></h2>
                                             <ul class="nav navbar-right panel_toolbox">
                                                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                                                 </li>
@@ -132,30 +132,35 @@
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Description</th>
-                                                        <th>Rig Count</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr th:each="installation : ${user.installations}">
-                                                        <td><a th:href="@{'/installations/' + ${installation.id}}"><span th:text="${#strings.capitalize(installation.name)}">name</span></a></td>
-                                                        <td><a th:href="@{'/installations/' + ${installation.id}}"><span th:text="${#strings.capitalize(installation.description)}">description</span></a></td>
-                                                        <td><a th:href="@{'/installations/' + ${installation.id}}">0</a></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <br />
+                                            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
 
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Description <span class="required">*</span>
+                                                    </label>
+                                                    <div class="col-md-6 col-sm-6 col-xs-12">
+                                                        <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                    </div>
+                                                </div>
+                                                <div class="ln_solid"></div>
+                                                <div class="form-group">
+                                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                                        <button type="submit" class="btn btn-success">Submit</button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
-
-
                             </div>
-
                             <div class="clearfix"></div>
                         </div>
                     </div>

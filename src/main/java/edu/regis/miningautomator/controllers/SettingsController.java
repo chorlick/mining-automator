@@ -5,10 +5,30 @@
  */
 package edu.regis.miningautomator.controllers;
 
+import edu.regis.miningautomator.models.User;
+import edu.regis.miningautomator.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
 /**
  *
  * @author chorl_000
  */
+@Controller
 public class SettingsController {
-    
+
+    @Autowired
+    UserService userService;
+
+    @GetMapping("/settings")
+    public String settings(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userService.findByUsername(auth.getName());
+        model.addAttribute("user", user);
+        return "settings";
+    }
 }
